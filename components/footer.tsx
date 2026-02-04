@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <p className="bg-footer_color text-center fixed bottom-0 w-[100%] flex justify-center items-center font-space">
-      @Friday. All Rights Reserved.
-    </p>
+    <footer className="w-full py-6 bg-footer_color text-center font-space border-t border-white/10">
+      <p className="text-sm opacity-70">
+        © {new Date().getFullYear()} Epitome SaaS. All Rights Reserved.
+      </p>
+    </footer>
   );
 }

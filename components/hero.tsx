@@ -1,54 +1,83 @@
 import Btn from "@/components/button";
 
+const pricingPlans = [
+  {
+    name: "Starter",
+    price: "$19/month",
+    features: [
+      "Basic Analysis",
+      "Up to 5 users",
+      "Email support",
+      "Cloud Storage (100gb)",
+    ],
+    featured: false,
+  },
+  {
+    name: "Pro",
+    price: "$49/month",
+    features: [
+      "Advanced Analytics",
+      "Unlimited Users",
+      "Priority Email & Chat Support",
+      "Cloud Storage (500gb)",
+    ],
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Contact Us",
+    features: [
+      "Enterprise Analytics",
+      "Unlimited Users",
+      "24/7 Dedicated Support",
+      "Cloud Storage (Unlimited)",
+      "API Access",
+    ],
+    featured: false,
+  },
+];
+
 export default function Hero() {
   return (
     <header className="mx-16 my-8 font-space">
-      <p className="text-[3rem] font-extrabold">
-        Unlock Your Potential.
-        <br />
-        Choose Your Plan.
-      </p>
-      <section className="grid grid-cols-3 w-full justify-center items-center gap-10 ">
-        <div className="border-bor_of_sta_ent bg-col_ofsta_eta rounded-2xl p-5 flex-col justify-between items-center overflow-hidden border-2   backdrop-blur-[10px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] mt-24 flex-1 flex min-w-0">
-          <div className="text-center py-8">
-            <h2 className="text-[2rem]">Starter</h2>
-            <h3 className="text-[1.5rem]">$19/month</h3>
+      <div className="mb-12">
+        <h1 className="text-[3rem] font-extrabold leading-tight">
+          Unlock Your Potential.
+          <br />
+          Choose Your Plan.
+        </h1>
+      </div>
+
+      <section className="grid grid-cols-1 md:grid-cols-3 w-full gap-10 items-stretch">
+        {pricingPlans.map((plan, index) => (
+          <div
+            key={index}
+            className={`p-8 rounded-2xl flex flex-col border-2 transition-all duration-300
+              ${
+                plan.featured
+                  ? "bg-pro_theme text-white scale-105 shadow-2xl z-10 border-transparent"
+                  : "bg-col_ofsta_eta border-bor_of_sta_ent backdrop-blur-md shadow-lg mt-8"
+              }`}
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-[2rem] font-bold">{plan.name}</h2>
+              <h3 className="text-[1.5rem] opacity-90">{plan.price}</h3>
+            </div>
+
+            <ul className="space-y-4 mb-8">
+              {plan.features.map((feature, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <span className="text-blue-500">✔</span> {feature}
+                </li>
+              ))}
+            </ul>
+
+            {/* mt-auto pushes the button to the absolute bottom of the card */}
+            <div className="mt-auto flex justify-center">
+              <Btn />
+            </div>
           </div>
-          <ul className="list-disc">
-            <li>Basic Analysis</li>
-            <li>Upto Five user</li>
-            <li>Email support</li>
-            <li>Cloud Storage(100gb)</li>
-          </ul>
-          <Btn />
-        </div>
-        <div className="bg-pro_theme text-white rounded-xl  scale-[1.05] shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex flex-col justify-between items-center p-5 flex-1 min-w-0">
-          <div className="text-center py-8">
-            <h2 className="text-[2rem]">Pro</h2>
-            <h3 className="text-[1.5rem]">$49/month</h3>
-          </div>
-          <ul className="list-disc">
-            <li>Advanced Analytics</li>
-            <li>Unlimited Users</li>
-            <li>Priority Email & Chat Support</li>
-            <li>Cloud Storage(500gb)</li>
-          </ul>
-          <Btn />
-        </div>
-        <div className="border-bor_of_sta_ent bg-col_ofsta_eta rounded-2xl p-5 flex-col justify-between items-center overflow-hidden border-2   backdrop-blur-[10px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] mt-24 flex-1 flex min-w-0">
-          <div className="text-center py-8">
-            <h2 className="text-[2rem]">Enterprise</h2>
-            <h3 className="text-[1.5rem]">Contact Us</h3>
-          </div>
-          <ul className="list-disc">
-            <li>Enterprise Analytics</li>
-            <li>Unlimited Users</li>
-            <li>24/7 Dedicated Support</li>
-            <li>Cloud Storage(Unlimited)</li>
-            <li>API Access</li>
-          </ul>
-          <Btn />
-        </div>
+        ))}
       </section>
     </header>
   );
