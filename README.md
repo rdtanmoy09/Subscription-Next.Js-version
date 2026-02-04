@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Subscription Plan UI – Next.js Practice Project
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project is a **subscription pricing page UI** built using **Next.js (App Router)** as a hands-on learning exercise. The goal was not to build a full SaaS backend, but to understand how modern Next.js projects are structured, how components are composed, and how responsive, theme-aware UIs are implemented.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The application showcases a clean **SaaS-style pricing layout** with three plans (Starter, Pro, Enterprise), supports **light and dark themes**, and follows common industry UI patterns used in real production dashboards.
+
+Live Demo: [Link](https://subscription-next-js-version.vercel.app)
+
+---
+
+## Tech Stack
+
+* **Next.js 14+** (App Router)
+* **React**
+* **TypeScript**
+* **CSS**
+* **Vercel** for deployment
+
+---
+
+## Features
+
+* Three pricing tiers:
+
+  * Starter
+  * Pro (highlighted as the recommended plan)
+  * Enterprise
+* Responsive layout (works across screen sizes)
+* Light & Dark theme support
+* Reusable UI components
+* Clean typography and spacing
+* Production-like SaaS landing section
+
+---
+
+## Project Structure
+
+```
+subscription-plan-next-js/
+│
+├── app/                  # App Router pages and layouts
+│   ├── favicon.ico
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout (Navbar, Footer, Providers)
+│   └── page.tsx          # Main pricing page route (/)
+│
+├── components/           # Reusable UI components
+│   ├── button.tsx
+│   ├── footer.tsx
+│   ├── hero.tsx
+│   └── Navbar.tsx
+│
+├── public/               # Static assets (SVGs, images)
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+│
+├── .gitignore
+├── eslint.config.mjs
+├── next.config.ts
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── tsconfig.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Run Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository
 
-## Learn More
+   ```bash
+   git clone https://github.com/rdtamoy09/Subscription-Next-Js-version.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Start the development server
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open your browser and visit:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## What This Project Is NOT
+
+To be very clear:
+
+* ❌ No authentication
+* ❌ No payment integration (Stripe, Razorpay, etc.)
+* ❌ No backend or database
+* ❌ No API routes
+
+This is **purely a frontend learning project**.
+
+---
+
+## Why This Project Exists
+
+This project exists to:
+
+* Practice real-world UI layouts used in SaaS products
+* Understand how Next.js structures apps at scale
+* Learn component separation instead of dumping everything into one page
+* Build confidence working with App Router + deployment
+
+It is a **learning milestone**, not a commercial product.
+
+---
+
+## Author
+
+Built by **Friday**
